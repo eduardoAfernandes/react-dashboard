@@ -6,6 +6,7 @@ import MenuSuperior from './Components/MenuSuperior/MenuSuperior';
 import Resumo from './Components/Resumo/Resumo';
 import Consultas from './Components/Consultas/Consultas';
 import Faturamento from './Components/Faturamento/Faturamento';
+import Footer from './Components/Footer/Footer'
 
 // Rotas
 import { Switch, Route } from 'react-router-dom';
@@ -35,6 +36,7 @@ function App() {
             </div>
           </div>
         </div>
+        <Footer/>
      </div>
   );
 
