@@ -25,10 +25,10 @@ class Resumo extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         fetch("http://www.devup.com.br/php/api-dashboard/api/resumo")
-        .then(resultado => resultado.json().then(
-            dados => this.setState(dados))
+            .then(resultado => resultado.json().then(
+                dados => this.setState(dados))
             )
             .catch(dados => console.log(dados));
     }
@@ -106,12 +106,11 @@ class Resumo extends Component {
                                                         currency: "BRL"
                                                     })
                                         }
-                                        <span className="badge ml-1 badge-danger">
-                                            {
-                                                this.state.faturamento.anterior
-                                                    .comparativo
-                                            } %
-       </span>
+                                        <span className={"badge ml-1 " + (this.state.faturamento.anterior
+                                            .comparativo > 0 ? "badge-success" : "badge-danger")}>
+                                            {this.state.faturamento.anterior.comparativo} %
+</span>
+
                                     </div>
                                 </div>
                             </div>
@@ -123,19 +122,17 @@ class Resumo extends Component {
                                         Próximos 30 dias     </div>
                                     <div className="card-body">
                                         {
-                                            this.state.faturamento.anterior
+                                            this.state.faturamento.previsao
                                                 .valor.toLocaleString("pt-BR",
                                                     {
                                                         style: "currency",
                                                         currency: "BRL"
                                                     })
                                         }
-                                        <span className="badge ml-1 badge-danger">
-                                            {
-                                                this.state.faturamento.previsao
-                                                    .comparativo
-                                            } %
-       </span>
+                                        <span className={"badge ml-1 " + (this.state.faturamento.previsao.comparativo
+                                             > 0 ? "badge-success" : "badge-danger")}>
+                                            {this.state.faturamento.previsao.comparativo} %
+</span>
                                     </div>
                                 </div>
                             </div>
