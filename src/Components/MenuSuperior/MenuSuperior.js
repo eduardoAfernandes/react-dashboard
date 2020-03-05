@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class MenuSuperior extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark ">
-                <a className="navbar-brand" href="#">Dashboard</a>
+                <Link to="/" className="navbar-brand">Dashboard</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
-                        <li className="nav-item active">
-                            <a className="nav-link" href="#">Home <span className="sr-only">(Página atual)</span></a>
+                    <li className="nav-item">
+                        <Link to="/resumo" className="nav-link">Resumo</Link>
+                        </li>                                       
+                        <li className="nav-item">
+                            <Link to="/consultas" className="nav-link">Consultas</Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Destaques</a>
+                        <Link to="/faturamento" className="nav-link">Faturamento</Link>
                         </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="#">Preços</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link disabled" href="#">Desativado</a>
-                        </li>
+                     
                     </ul>
                 </div>
             </nav>
