@@ -9,7 +9,7 @@ class Resumo extends Component {
         // Estado representa os dados que ele manipula internamente 
         this.state = {
             consultas: {
-                consultas_30dias_anteriores: 0,
+                consultas_30dias_anteiores: 0,
                 consultas_30dias_posteriores: 0
             },
             faturamento: {
@@ -25,6 +25,13 @@ class Resumo extends Component {
         }
     }
 
+    componentDidMount(){
+        fetch("http://www.devup.com.br/php/api-dashboard/api/resumo")
+        .then(resultado => resultado.json().then(
+            dados => this.setState(dados))
+            )
+            .catch(dados => console.log(dados));
+    }
     render() {
         return (
 
@@ -51,7 +58,7 @@ class Resumo extends Component {
                                         {
                                             this.state
                                                 .consultas
-                                                .consultas_30dias_anteriores
+                                                .consultas_30dias_anteiores
                                         }
                                     </div>
                                 </div>
@@ -80,7 +87,7 @@ class Resumo extends Component {
 
                     <div className="col-lg-6 mt-4">
                         <div className="col-12">
-                            <h2 className="h2 text-center my-2">Resumo</h2>
+                            <h2 className="h2 text-center my-2">Faturamento</h2>
                         </div>
                         <div className="row mx-1">
 
